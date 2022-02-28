@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-import dj-database-url
 import os
 from django.core.management.base import BaseCommand
 from django.core.cache import cache
@@ -166,5 +165,3 @@ login_redirect = 'http://localhost:8000/complete/google-oauth2/'
 ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-db_from_env = dj-database-url.config()
