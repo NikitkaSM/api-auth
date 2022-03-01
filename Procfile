@@ -1,1 +1,1 @@
-web: gunicorn apiauth.apiauth.wsgi
+web: gunicorn apiauth.wsgi
