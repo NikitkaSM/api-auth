@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'apiauth.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv("USER"),
+        'NAME': os.getenv("NAME"),
         'HOST': os.getenv("HOST", "localhost"),
         'PORT': '',
         'USER': os.getenv("USER"),
