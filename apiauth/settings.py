@@ -82,12 +82,12 @@ WSGI_APPLICATION = 'apiauth.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'd5v3d2atr7p0m8',
-        'HOST': 'ec2-54-157-12-250.compute-1.amazonaws.com',
-        'PORT': 5432,
-        'USER': 'ailtolfpzdtopz',
-        'PASSWORD': '8f7e1e93c7a51c0d944f491447f0d518e933b77d1c2398ed40002c7b6f3d33b7',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv("USER"),
+        'HOST': os.getenv("HOST", "localhost"),
+        'PORT': '',
+        'USER': os.getenv("USER"),
+        'PASSWORD': os.getenv("PASSWORD"),
     }
 }
 
@@ -153,13 +153,11 @@ SOCIAL_AUTH_PIPELINE = (
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '533016174936-19ck506okq42beipm83abv2hka2i1llu.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
+
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         cache.clear()
         self.stdout.write('Cleared cache\n')
-
-
-login_redirect = 'http://localhost:8000/complete/google-oauth2/'
 
 
 ALLOWED_HOSTS = ['*']
