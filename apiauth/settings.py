@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 from django.core.management.base import BaseCommand
 from django.core.cache import cache
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -159,6 +160,7 @@ class Command(BaseCommand):
         cache.clear()
         self.stdout.write('Cleared cache\n')
 
+django_heroku.settings(locals())
 
 ALLOWED_HOSTS = ['*']
 
