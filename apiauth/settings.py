@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """ 
 import os
-from django.core.management.base import BaseComman
+from django.core.management.base import BaseCommand
 from django.core.cache import cache
 import django_heroku
 
