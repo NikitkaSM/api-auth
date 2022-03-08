@@ -8,9 +8,9 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
-"""
+""" 
 import os
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseComman
 from django.core.cache import cache
 import django_heroku
 
@@ -151,8 +151,8 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.user_details',
 )
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '533016174936-19ck506okq42beipm83abv2hka2i1llu.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")
 
 
 class Command(BaseCommand):
@@ -160,8 +160,10 @@ class Command(BaseCommand):
         cache.clear()
         self.stdout.write('Cleared cache\n')
 
+
 django_heroku.settings(locals())
 
 ALLOWED_HOSTS = ['*']
+SITE_ID = 3
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
